@@ -1,5 +1,7 @@
 package com.example.crawldata.app.controller;
 
+import com.example.crawldata.app.response.CategoryResponse;
+import com.example.crawldata.app.response.PageResponse;
 import com.example.crawldata.domain.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +15,8 @@ public class CategoryController {
   @Autowired private CategoryService categoryService;
 
   @GetMapping
-  public ResponseEntity<?> getCategories(){
-    return ResponseEntity.ok(categoryService.getCategories());
+  public PageResponse<CategoryResponse> getCategories(){
+    return PageResponse.createFrom(categoryService.getCategories());
   }
 
 }

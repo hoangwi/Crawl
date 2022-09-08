@@ -11,6 +11,6 @@ public class NewsResponse {
   private Integer categoryId;
   private String title;
   private String link;
-  private Map<String, String> properties;
+  private String description;
   private LocalDateTime publicDate;
 }

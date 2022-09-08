@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class CategoryService extends BaseService{
-  public List<CategoryResponse> getCategories(){
+  public Page<CategoryResponse> getCategories(){
     List<CategoryResponse> categoryResponses = new ArrayList<>();
     List<Category> categoryPage = categoryStorage.findAllOrderByIdDesc();
     if (!categoryPage.isEmpty()) {
@@ -21,7 +21,7 @@ public class CategoryService extends BaseService{
       }
     }
 //    Page<CategoryResponse> categoryResponsePage = new PageImpl<>(categoryResponses);
-    return categoryResponses;
+    return new PageImpl<>(categoryResponses);
   }
 
 

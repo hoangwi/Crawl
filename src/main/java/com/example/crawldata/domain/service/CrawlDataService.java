@@ -21,7 +21,7 @@ import java.util.Map;
 @Log4j2
 @Service
 public class CrawlDataService extends BaseService {
-  private static String URL_POST = "https://www.foxsports.com.au/content-feeds/boxing/";
+  private static String URL_POST = "https://www.foxsports.com.au/content-feeds/cycling/";
 
   public void getData() {
     try {
@@ -58,12 +58,10 @@ public class CrawlDataService extends BaseService {
         news.setCategoryId(category.getId());
         news.setTitle(syndEntry.getTitle());
         news.setLink(syndEntry.getLink());
-        Map<String, String> properties = new HashMap<>();
+//        Map<String, String> properties = new HashMap<>();
 
         Document document = Jsoup.parse(syndEntry.getDescription().getValue());
-        properties.put("description", document.getElementsByTag("p").text());
-
-        news.setProperties(properties);
+        news.setDescription(String.valueOf(document.getElementsByTag("p")));
         news.setPublicDate(Helper.convertDateToLocalDateTime(syndEntry.getPublishedDate()));
         news.setUpdateAt(System.currentTimeMillis());
 

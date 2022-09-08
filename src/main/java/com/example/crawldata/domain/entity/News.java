@@ -26,8 +26,8 @@ public class News extends BaseEntity {
   @Field(name = "link")
   private String link;
 
-  @Field(name = "properties")
-  private Map<String, String> properties;
+  @Field(name = "description")
+  private String description;
 
   @Field(name = "public_date")
   private LocalDateTime publicDate;

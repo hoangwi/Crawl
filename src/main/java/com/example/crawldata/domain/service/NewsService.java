@@ -22,7 +22,6 @@ public class NewsService extends BaseService {
         newsResponsesList.add(newsResponse);
       }
     }
-
     return new PageImpl<>(newsResponsesList);
   }
 
