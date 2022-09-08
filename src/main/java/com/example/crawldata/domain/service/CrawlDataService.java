@@ -62,16 +62,6 @@ public class CrawlDataService extends BaseService {
 
         Document document = Jsoup.parse(syndEntry.getDescription().getValue());
         properties.put("description", document.getElementsByTag("p").text());
-//        log.info("========description: " + document.getElementsByTag("p"));
-//
-//        if (!document.getElementsByTag("a").text().isEmpty()) {
-//          log.info("========tag <a> description: " + document.getElementsByTag("a").attr("href"));
-//          properties.put("href", document.getElementsByTag("a").attr("href"));
-//        }
-//
-//        if (!document.getElementsByTag("i").text().isEmpty()) {
-//          log.info("========tag <i> description: " + document.getElementsByTag("i").text());
-//        }
 
         news.setProperties(properties);
         news.setPublicDate(Helper.convertDateToLocalDateTime(syndEntry.getPublishedDate()));
@@ -91,7 +81,7 @@ public class CrawlDataService extends BaseService {
 
   public void deleteNews(int categoryId){
 
-    //Todo now - 1h
+    //Todo time = now - 1h
     Long time = System.currentTimeMillis() - 3600 * 1000; //Thoi gian 1h truoc
     List<News> newsList = newsStorage.findByCategoryIdAndUpdateAtLessThan(categoryId, time);
     if(newsList != null){

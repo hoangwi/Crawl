@@ -31,7 +31,4 @@ public class News extends BaseEntity {
 
   @Field(name = "public_date")
   private LocalDateTime publicDate;
-
-  @Field(name = "docs")
-  private String docs;
 }
