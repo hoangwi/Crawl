@@ -64,6 +64,7 @@ public class CrawlDataService extends BaseService {
         news.setUpdateAt(System.currentTimeMillis());
 
         newsList.add(news);
+
       }
 
       newsStorage.saveAll(newsList);
